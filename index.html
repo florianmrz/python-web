@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Python in the web</title>
+    <script type="text/javascript" src="./brython/brython.js"></script>
+    <script type="text/python" src="./python/script.py"></script>
+    <script type="text/javascript" src="./brython/brython_stdlib.js"></script>
 </head>
-<body>
-<p>Just a test.</p>
+<body onload="brython()">
+    <p>Click the button to start.</p>
+    <button id="test">Click me!</button>
+    <p id="output"></p>
 </body>
 </html>
