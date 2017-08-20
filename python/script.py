@@ -58,11 +58,11 @@ def gloves (g):
     else:
         return("Sport Gloves | Arid")
 
-def stattrak(z):
-    if z <= 1:
+def stattrak(s):
+    if s <= 1:
         return ("Stattrak")
     else:
-        return ('')
+        return ("")
 
 def roll(x,g):
     if x <= 1:
@@ -103,15 +103,14 @@ def roll(x,g):
         return("MAC-10 | Aloha")
 
 
-def wear(y):
-    print("")
-    if y <=1:
+def wear(w):
+    if w <=1:
         return("(Factory New)")
-    elif y <=2:
+    elif w <=2:
         return("(Minimal Wear)")
-    elif y <=3:
+    elif w <=3:
         return("(Field Tested)")
-    elif y <=4:
+    elif w <=4:
         return("(Well-Worn)")
     else:
         return("(Battle-Scarred)")
@@ -119,32 +118,36 @@ def wear(y):
 def everything():
         # Create random numbers
         x = random.randint(1, 100)
-        y = random.randint(1,5)
-        z = random.randint(1,4)
-        g = random.randint(1,25)
-        print ("Unboxing...")
+        w = random.randint(1, 5)
+        s = random.randint(1, 4)
+        g = random.randint(1, 25)
+
+        # Print out the integer results
+        # print (s, x, w)
+
+        print("Unboxing...")
         # time.sleep(1)
         if x == 1:
-           print ("You've Unboxed: " + roll(x,g) + " " + wear(y))
+            print("You've Unboxed:", html.B(roll(x, g) + " " + wear(w)))
         else:
-            print ("You've Unboxed: " + stattrak(z) + " " + roll() + " " + wear())
+            print("You've Unboxed:", html.B(stattrak(s) + " " + roll(x, g) + " " + wear(w)))
         print("")
 
 
 def start():
-    print ("Welcome, Would You Like to Open a Case?")
+    # print ("Welcome, Would You Like to Open a Case?")
     answer_one = str(input("Welcome, Would You Like to Open a Case?"))
     if answer_one in case_answer:
         everything()
     elif answer_one in case_close:
-        print ("GoodBye, Come Back Soon!")
+        print("GoodBye, Come Back Soon!")
         # time.sleep(1)
         # sys.exit()
     else:
-        print ("Sorry, I didn't Understand What You Meant")
-        print()
+        print("Sorry, I didn't Understand What You Meant")
         # time.sleep(1)
         start()
+
 
 # Prints out text
 def print(*args):
@@ -160,8 +163,5 @@ def print(*args):
             document["output"] <= " "
         document["output"] <= arg
 
-# Print out the integer results
-print (z, x, y)
-
 # Bind click listener to button
-document['test'].bind('click', start)
+document["button"].bind("click", start)
